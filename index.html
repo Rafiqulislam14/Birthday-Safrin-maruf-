@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Safrin ❤️</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#190d2b,#54235e,#a83270);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* PAGE DESIGN */
+
+.page {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+.page.active {
+    display: flex;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CARD */
+
+.card {
+    width: 100%;
+    max-width: 620px;
+    padding: 40px 25px;
+    border-radius: 28px;
+
+    background: rgba(255,255,255,.10);
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow: 0 15px 50px rgba(0,0,0,.3);
+
+    position: relative;
+    z-index: 2;
+}
+
+/* HEADINGS */
+
+h1 {
+    font-size: clamp(32px,7vw,52px);
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffb6d5,
+        #ffe6a7
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin: 20px 0;
+}
+
+h2 {
+    color: #ffc6df;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #ffe6f0;
+    margin: 15px 0;
+}
+
+/* ANIMATIONS */
+
+.emoji {
+    font-size: 85px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.name {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffb6d5;
+    margin: 15px 0;
+}
+
+.date {
+    color: #ffe6a7;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* BUTTONS */
+
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    margin: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.main-btn {
+    background: linear-gradient(90deg,#ff5caa,#c026d3);
+    color: white;
+    box-shadow: 0 5px 20px #e879b8;
+}
+
+.back-btn {
+    background: white;
+    color: #a21caf;
+}
+
+/* FLOATING ROSES */
+
+.rose {
+    position: fixed;
+    bottom: -80px;
+    font-size: 35px;
+    animation: roseFloat 10s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes roseFloat {
+    to {
+        transform: translateY(-120vh) rotate(360deg);
+    }
+}
+
+/* LETTER */
+
+.letter {
+    background: linear-gradient(135deg,#fff0f6,#ffe4ef);
+    color: #84245a;
+    padding: 30px 22px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    text-align: left;
+}
+
+.letter h2 {
+    color: #c02675;
+}
+
+.letter p {
+    color: #84245a;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 25px;
+    color: #ffd1e5;
+    font-size: 13px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:480px) {
+
+    .card {
+        padding: 30px 18px;
+    }
+
+    .name {
+        font-size: 34px;
+    }
+
+    .emoji {
+        font-size: 70px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- PAGE 1 : WELCOME -->
+
+<section class="page active" id="page1">
+
+<div class="card">
+
+<div class="emoji">💌</div>
+
+<h1>A Little Surprise</h1>
+
+<h2>For Someone Special ❤️</h2>
+
+<p>
+
+Someone amazing deserves something beautiful today.
+
+<br><br>
+
+I have prepared a special surprise filled
+with happiness, smiles and beautiful memories.
+
+<br><br>
+
+Are you ready to open it?
+
+</p>
+
+<button class="main-btn" onclick="goToPage(2)">
+
+Open Your Surprise 💗
+
+</button>
+
+<footer>
+A Special Day For Someone Special
+</footer>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 2 : BIRTHDAY -->
+
+<section class="page" id="page2">
+
+<div class="card">
+
+<div class="emoji">🎂</div>
+
+<h1>Happy Birthday!</h1>
+
+<div class="name">
+Safrin ❤️
+</div>
+
+<div class="date">
+📅 01 November 2026
+</div>
+
+<p>
+
+Today is all about celebrating YOU! 🌹
+
+<br><br>
+
+May your special day be filled with
+beautiful smiles, sweet surprises
+and unforgettable moments.
+
+<br><br>
+
+May every new day bring you happiness,
+success, peace and countless blessings.
+
+<br><br>
+
+May all your dreams come true.
+
+<br><br>
+
+Keep shining, keep smiling and
+never stop being amazing!
+
+<br><br>
+
+<strong>Wishing You The Happiest Birthday! ❤️</strong>
+
+</p>
+
+<button class="main-btn" onclick="celebrate()">
+
+Celebrate With Me 🎉
+
+</button>
+
+<br>
+
+<button class="main-btn" onclick="goToPage(3)">
+
+Read Your Special Letter 💌
+
+</button>
+
+<button class="back-btn" onclick="goToPage(1)">
+
+← Back
+
+</button>
+
+<footer>
+A Beautiful Birthday For Safrin ❤️
+</footer>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 3 : LETTER -->
+
+<section class="page" id="page3">
+
+<div class="card">
+
+<div class="emoji">🌹</div>
+
+<h1>A Special Letter</h1>
+
+<div class="letter">
+
+<h2>Dear Safrin, ❤️</h2>
+
+<p>
+
+On your special day, I just want to
+remind you how wonderful and special
+you are.
+
+<br><br>
+
+May your life always be filled with
+happiness, your heart with peace
+and your days with beautiful memories.
+
+<br><br>
+
+May every morning bring you new hope
+and every evening bring you peace.
+
+<br><br>
+
+I hope this birthday becomes one of
+the most beautiful memories of your life.
+
+<br><br>
+
+You deserve all the happiness
+this world has to offer.
+
+<br><br>
+
+<strong>
+Happy Birthday Once Again! ❤️
+</strong>
+
+</p>
+
+<h2 style="text-align:right;">
+With Lots of Love 💗
+</h2>
+
+</div>
+
+<button class="main-btn" onclick="celebrate()">
+
+One More Celebration 🎊
+
+</button>
+
+<br>
+
+<button class="back-btn" onclick="goToPage(2)">
+
+← Back
+
+</button>
+
+<footer>
+Made Especially For Safrin 🌹
+</footer>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function goToPage(number) {
+
+    document.querySelectorAll(".page").forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+    document.getElementById("page" + number)
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+
+    if(number === 2) {
+        celebrate();
+    }
+
+}
+
+
+/* CONFETTI ANIMATION */
+
+function celebrate() {
+
+    confetti({
+        particleCount: 200,
+        spread: 150,
+        startVelocity: 45,
+        origin: {
+            y: 0.6
+        }
+    });
+
+    setTimeout(() => {
+
+        confetti({
+            particleCount: 100,
+            spread: 120,
+            origin: {
+                x: 0.2,
+                y: 0.5
+            }
+        });
+
+        confetti({
+            particleCount: 100,
+            spread: 120,
+            origin: {
+                x: 0.8,
+                y: 0.5
+            }
+        });
+
+    }, 400);
+
+}
+
+
+/* FLOATING ROSES */
+
+function createRose() {
+
+    const rose = document.createElement("div");
+
+    rose.className = "rose";
+
+    const flowers = [
+        "🌹",
+        "💗",
+        "🌸",
+        "💕",
+        "✨"
+    ];
+
+    rose.innerHTML = flowers[
+        Math.floor(Math.random() * flowers.length)
+    ];
+
+    rose.style.left = Math.random() * 100 + "vw";
+
+    rose.style.animationDuration =
+        (6 + Math.random() * 7) + "s";
+
+    document.body.appendChild(rose);
+
+    setTimeout(() => {
+
+        rose.remove();
+
+    },13000);
+
+}
+
+setInterval(createRose,1000);
+
+</script>
+
+</body>
+</html>
